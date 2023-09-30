@@ -1,6 +1,6 @@
 # STUDY of ASSEMBLY
 
-Comandos padrão para execução do programa no terminal:
+## Comandos padrão para execução do programa no terminal
 
 `nasm -f elf64 -F stabs hello.asm -o hello.o`
 
