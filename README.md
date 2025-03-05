@@ -1,7 +1,7 @@
 # STUDY of ASSEMBLY
 
-![GitHub language count](https://img.shields.io/static/v1?label=Assembly&message=framework&color=blue&style=for-the-badge&logo=Assembly)
-![Status](https://img.shields.io/static/v1?label=STATUS&message=INCOMPLETO&color=YELLOW&style=for-the-badge)
+![AssemblyScript](https://img.shields.io/badge/assembly%20script-%23000000.svg?style=for-the-badge&logo=assemblyscript&logoColor=white)
+![Status](https://img.shields.io/static/v1?label=STATUS&message=INCOMPLETO&color=orange&style=for-the-badge)
 
 > Consiste em um repositório destinado a armazenar códigos e programas realizados na aula de Arquitetura de Computadores.
 
