@@ -12,14 +12,14 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 - Você instalou a versão mais recente de `GCC` e rodar em compilador/editor de texto, como: <a href= "https://kate-editor.org/pt-br/" > Editor Kate </a>
   
 - Você tem uma máquina `Windows / Linux / Mac`.
-- Você leu [Especificações](https://github.com/DebbieMatt/Trabalho-de-AED/blob/d686341ba760d82f0cb46b7a0e54c9432a6c249f/Descri%C3%A7%C3%A3o%20do%20trabalho.pdf).
+- Você leu [Especificações de Instrução e Execução de programas Assembly](https://github.com/DebbieMatt/STUDY-ASSEMBLY/blob/06d41ada4297e9db33d40f4e6aaa40116676b09e/Microsoft%20Word%20-%20resumo_assembly.pdf).
 
 ## 🚀 Instalando o Trabalho Final
 
 Para clonar o código do caixa de supermercado, no Linux / macOS / Windows, basta abrir o terminal e colar o seguinte comando:
 
 ```
-git clone https://github.com/DebbieMatt/Trabalho-de-AED.git
+git clone https://github.com/DebbieMatt/STUDY-ASSEMBLY.git
 ```
 
 ## 📫 Contribuindo para a manutenção
