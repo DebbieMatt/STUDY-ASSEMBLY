@@ -1,10 +1,9 @@
 ; printf3.asm  uso do printf em char, string, int, long int, float, double
 ; 
-; Assemble:	nasm -f elf64 -F dwarf  printTypes.asm
-; Link:		gcc printTypes.o -fno-pie -no-pie -o printTypes
-; Run:		./printTypes
-;
-; #include <stdio.h>
+; Assemble:	nasm -f elf64 -l printf3.lst  printf3.asm
+; Link:		gcc -m64 -o printf3  printf3.o
+; Run:		./printf3 
+; 
 ; Programa em C equivalente
 ;   char      char1='a';            /* caracter */
 ;   char      str1[]="mystring";    /* string */
@@ -15,7 +14,7 @@
 ;   float     flt1=5.327e-30;       /* float 32-bit */
 ;   double    flt2=-123.4e300;      /* double 64-bit*/
 ;
-; 
+; #include <stdio.h>
 ; int main()
 ; {
 ;   flttmp=flt1;
@@ -30,7 +29,7 @@
 
         SECTION .data                  
 
-fmt2:   db "printf2_64: flt2=%e", 10, 0
+fmt2:   db "printf2: flt2=%e", 10, 0
 fmt3:	db "char1=%c, str1=%s, len=%d", 10, 0
 fmt4:	db "char1=%c, str1=%s, len=%d, inta1=%d, inta2=%ld", 10, 0
 fmt5:	db "hex1=%lX, flt1=%e, flt2=%e", 10, 0
@@ -54,19 +53,19 @@ flttmp:	resq 1
 main:				        
 	push    rbp			
 	
-	fld	dword [flt1]	            ; é preciso converter o float para 64 bits
+	fld	dword [flt1]	        ; é preciso converter o float para 64 bits
 	fstp	qword [flttmp]          ; floating load (80 bits)
 	                                ; flttmp=flt1
 	mov	rdi,fmt2
 	movq	xmm0, qword [flt2]
-	mov	rax, 1			            ; 1 registrador xmm
+	mov	rax, 1			; 1 registrador xmm
 	call	printf
 
 	mov	rdi, fmt3		
 	mov	rsi, [char1]		
 	mov	rdx, str1		
 	mov	rcx, len		
-	mov	rax, 0			            ; nenhum registrador xmm
+	mov	rax, 0			; nenhum registrador xmm
 	call	printf
 
 	mov	rdi, fmt4		
@@ -75,16 +74,16 @@ main:
 	mov	rcx, len		
 	mov	r8, [inta1]		
 	mov	r9, [inta2]		
-	mov	rax, 0			            ; nenhum registrador xmm
+	mov	rax, 0			; nenhum registrador xmm
 	call	printf
 
 	mov	rdi, fmt5		
 	mov	rsi, [hex1]		
 	movq	xmm0, qword [flttmp]    
 	movq	xmm1, qword [flt2]	
-	mov	rax, 2			            ; 2 registradores xmm
+	mov	rax, 2			; 2 registradores xmm
 	call	printf
 	
-	pop	rbp			                ; restaura a pilha
-        mov     rax, 0			    ; exit code, 0=normal
+	pop	rbp			; restaura a pilha
+        mov     rax, 0			; exit code, 0=normal
         ret	

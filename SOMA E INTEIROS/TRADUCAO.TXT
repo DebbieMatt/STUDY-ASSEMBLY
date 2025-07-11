@@ -1,0 +1,37 @@
+ 
+	mov	edx,2
+	mov	[i],edx	  ; (i=2)
+loop_for_1: 
+        mov	ebx,[i]
+	inc	ebx
+	mov	[i],ebx	;  ++i
+	mov	eax,[n]
+	shr	eax,1	 ;eax = n/2
+	mov	edx,[i]
+	cmp	edx,eax
+	ja	fim_for_1
+	mov	eax,[n]
+	mov	ecx,[i]
+	div	ecx
+	cmp	edx,0    ; resto em edx
+	jne	fim_if_1
+	mov	eax,1
+	mov 	[flag],eax	;flag = 1
+	jmp	fim_for_1
+fim_if_1:
+	jmp loop_for_1
+fim_for_1:    
+         mov eax,[flag]
+         cmp eax,0
+         jnz parte_else_if_2
+         mov rdi, str2
+         mov rax,0
+         call printf
+         jmp fim_if_2
+parte_else_if_2:
+         mov rdi,str3
+         mov rax,0
+         call printf
+
+fim_if_2:
+           
